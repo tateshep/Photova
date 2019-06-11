@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+<main class="container">
+    <h1>This is the gallery</h1>
+
+    {% for collection in collection_list %}
+
+        <h1>{{ collection.title }}</h1>
+        {% for image in collection.images.all %}
+
+            <p>{{ image }}</p>
+            <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+
+        {% endfor %}
+    {% endfor %}
+
+    <a href="{% url 'home:index'%}">Home</a>
+</main>
+{% endblock content%}
