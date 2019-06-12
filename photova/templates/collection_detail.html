@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    <h1>Collection Detail {{ collection }}</h1>
+        <p>{{ collection.description }}</p>
+    <a href="{% url 'gallery:collection_update' collection.id %}">Update Collection</a>
+    <a href="{% url 'gallery:collection_delete' collection.id %}">Delete Collection</a>
+
+        {% for image in collection.images.all %}
+
+            <p>{{ image }}</p>
+            <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+
+        {% endfor %}
+
+
+
+{% endblock content %}

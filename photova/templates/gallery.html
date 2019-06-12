@@ -4,21 +4,24 @@
 {% block content %}
 
 <main class="container">
-    <h1>This is the gallery</h1>
+
+    <h1>This is the gallery collection List</h1>
 
     {% for collection in collection_list %}
-
-        <h1>{{ collection.title }}</h1>
+        <a href="{% url 'gallery:collection_detail' collection.id %}"><h2>{{ collection.title }}</h2></a>
         {% for image in collection.images.all %}
 
             <p>{{ image }}</p>
-            <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+            <a href="{% url 'gallery:image_detail' image.id%}">
+                <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+            </a>
+            
 
         {% endfor %}
     {% endfor %}
 
-    <a href="{% url 'home:index'%}">Home</a>
-    <a href="{% url 'gallery:new' %}">Add Image</a>
+   
+    <a href="{% url 'gallery:collection_create' %}"><button>Create Collection</button>
 
 </main>
 {% endblock content%}

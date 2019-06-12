@@ -15,7 +15,8 @@ class Image(models.Model):
 
 class Collection(models.Model):
     title = models.CharField(max_length=50)
-    images = models.ManyToManyField(Image,blank=True) # manytomany relationship with Collection
+    images = models.ManyToManyField(Image,blank=True,null=True) # manytomany relationship with Collection
+    description = models.TextField(blank=True)
 
     class Meta:
         ordering = ('title',)
@@ -23,4 +24,6 @@ class Collection(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url (self):
+        return reverse('gallery:collection_detail', args=[str(self.id)])
 

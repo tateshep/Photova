@@ -3,6 +3,11 @@ h1 {
     font-size:2em;
 }
 
+h2 {
+    color:blue;
+    font-size:1.5em;
+}
+
 .image-thumbnail {
     height:200px;
     width:200px;
@@ -10,3 +15,4 @@ h1 {
     background-size: 200px auto;
     background-repeat: no-repeat;
 }
+

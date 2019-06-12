@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Photova</title>
-    <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
@@ -17,7 +17,11 @@
 
         {% block content %}
         {% endblock content %}
-        
+
+    <a href="{% url 'home:index'%}">Home</a>
+    <a href="{% url 'gallery:gallery' %}">View Gallery</a>
+
+    <a href="{% url 'gallery:new' %}">Upload Image</a>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script> -->
