@@ -11,6 +11,7 @@ class HomeView(ListView):
     model = Collection
     template_name = 'gallery.html'
     # not actually sure if this is necessary
+    # Update: I think it doesn't because I have it set to all, but if I filtered or ordered, this is where I could do that
     def get_queryset(self):
         return Collection.objects.all()
 
@@ -32,7 +33,6 @@ class CollectionDelete(DeleteView):
     model = Collection
     template_name = 'collection_delete.html'
     success_url = reverse_lazy('gallery:gallery')
-
 
 class NewImage(CreateView):
     model = Image

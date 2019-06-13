@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<v-container>
+        <h2>User Signup</h2>
+    <form action="" method="post">
+
+
+            {% csrf_token %}
+            {{ form.as_p }}    
+            <input type="submit" value="Sign Up">
+        
+        </form>
+
+</v-container>
+
+<!-- 
+   
+
+
+<template>
+            <v-form>
+                <v-container>
+                    <v-layout row wrap>
+                        <v-flex xs12 sm6>
+                        {% for field in form %}
+                            <v-text-field
+                                value="{{ field.value }}"
+                                disabled>
+                            </v-text-field>
+                        {% endfor %}
+                        </v-flex>          
+                    </v-layout>         
+                </v-container>
+            </v-form>
+        </template>
+
+
+
+-->
+
+</v-container>
+
+
+{% endblock content %}

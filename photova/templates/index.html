@@ -1,8 +1,58 @@
 {% extends 'base.html' %} 
+{% load static %}
 
 {% block content %}
 
-<main class="container">
-    <h1>This is the index.html</h1>
+<template fluid>
+    <v-parallax
+        src="{% static 'images/hero-home-smaller.jpeg' %}"
+        height="800">
+    </v-parallax>
+</template>
+
+<main >
+<section class="index-grid">
+    <div class="index-grid-1-1">
+        <v-container>
+            <h1>This is the index.html</h1>
+
+            <p class="border-left-p">Sales angel investor monetization seed money investor accelerator stealth iPhone non-disclosure agreement incubator learning curve value proposition seed round disruptive. Angel iies A financing creraction design startup stock stealth investor iPhone. IPad metrics android incubator accelerator monetization gen-z research & development founders infrastructure business-to-consumer traction.
+            </p>
+        </v-container>
+    </div>
+    
+    <div class="index-grid-1-2">
+        <v-parallax src="{% static 'images/abstract-bg-1.png' %}">
+        
+        </v-parallax>
+    </div>
+     <div class="index-grid-2-1">
+        <v-parallax src="{% static 'images/abstract-bg-2.png' %}">
+            <v-container>
+                <h1>THis is some Copy</h1>
+            </v-container>
+        </v-parallax>
+    
+    </div>
+
+     <div class="index-grid-2-2">
+        <v-container>
+            <h1>This is the index.html</h1>
+
+            <p class="border-left-p">Sales angel investor monetization seed money investor accelerator stealth iPhone non-disclosure agreement incubator learning curve value proposition seed round disruptive. Angel iies A financing creraction design startup stock stealth investor iPhone. IPad metrics android incubator accelerator monetization gen-z research & development founders infrastructure business-to-consumer traction.
+            </p>
+        </v-container>
+    </div>
+
+</section>
+   
+
 </main>
+    
+
+
+
 {% endblock content%}
+{% block js%}
+
+{% endblock %}

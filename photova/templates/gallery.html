@@ -3,25 +3,29 @@
 
 {% block content %}
 
-<main class="container">
+<v-container>
 
     <h1>This is the gallery collection List</h1>
+    <a href="{% url 'gallery:collection_create' %}"><button>Create Collection</button>
 
     {% for collection in collection_list %}
         <a href="{% url 'gallery:collection_detail' collection.id %}"><h2>{{ collection.title }}</h2></a>
-        {% for image in collection.images.all %}
+        
+        <section class="gallery-section">
 
-            <p>{{ image }}</p>
-            <a href="{% url 'gallery:image_detail' image.id%}">
-                <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
-            </a>
-            
+            {% for image in collection.images.all %}
 
-        {% endfor %}
+                <a href="{% url 'gallery:image_detail' image.id%}">
+                    <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+                </a>
+                
+
+            {% endfor %}
+        
+        </section>
     {% endfor %}
 
    
-    <a href="{% url 'gallery:collection_create' %}"><button>Create Collection</button>
 
-</main>
+</v-container>
 {% endblock content%}

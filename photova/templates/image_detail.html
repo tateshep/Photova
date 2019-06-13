@@ -1,13 +1,21 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+
+<v-container>
+
     <h1> {{ Image }}</h1>
-    <a href="{% url 'gallery:image_update' image.id %}">Update image</a>
-    <a href="{% url 'gallery:delete_image' image.id %}">Delete image</a>
+    <p>
+        <a href="{% url 'gallery:image_update' image.id %}">Update image |</a>
+        <a href="{% url 'gallery:delete_image' image.id %}">Delete image</a>
+    
+    </p>
 
     
     <img src="{{ MEDIA_URL }}{{ image.photo}}" alt="{{ Image.title }}">
-    <p> {{ image.author }}</p>
+    <p>Added by: {{ image.author }}</p>
+
+</v-container>
 
 
 {% endblock content %}
