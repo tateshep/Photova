@@ -1,6 +1,8 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+<div class="container">
+
     <h1>Delete {{ collection }}</h1>
 
     <p>Are you sure you would like to delete {{ collection }}?</p>
@@ -10,7 +12,8 @@
         
         {{ form.as_p }}
 
-        <input type="submit" value="Delete">
+        <input class="waves-effect waves-light btn deep-orange darken-4" type="submit" value="Delete">
 
     </form>
+</div>
 {% endblock content %}

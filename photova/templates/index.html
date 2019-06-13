@@ -3,50 +3,41 @@
 
 {% block content %}
 
-<template fluid>
-    <v-parallax
-        src="{% static 'images/hero-home-smaller.jpeg' %}"
-        height="800">
-    </v-parallax>
-</template>
+ <div class="parallax-container">
+      <div class="parallax"><img src="{% static 'images/hero-home.jpeg' %}"></div>
+    </div>
 
 <main >
 <section class="index-grid">
     <div class="index-grid-1-1">
-        <v-container>
+        <div class="container">
             <h1>This is the index.html</h1>
 
             <p class="border-left-p">Sales angel investor monetization seed money investor accelerator stealth iPhone non-disclosure agreement incubator learning curve value proposition seed round disruptive. Angel iies A financing creraction design startup stock stealth investor iPhone. IPad metrics android incubator accelerator monetization gen-z research & development founders infrastructure business-to-consumer traction.
             </p>
-        </v-container>
+        </div>
     </div>
     
     <div class="index-grid-1-2">
-        <v-parallax src="{% static 'images/abstract-bg-1.png' %}">
-        
-        </v-parallax>
+        <div class="parallax-container hero-parallax">
+            <div class="parallax"><img src="{% static 'images/abstract-bg-1.png' %}"></div>
+        </div>
     </div>
      <div class="index-grid-2-1">
-        <v-parallax src="{% static 'images/abstract-bg-2.png' %}">
-            <v-container>
-                <h1>THis is some Copy</h1>
-            </v-container>
-        </v-parallax>
-    
+        <div class="parallax-container">
+           <div class="parallax"><img src="{% static 'images/abstract-bg-2.png' %}"></div>
+        </div>
     </div>
 
      <div class="index-grid-2-2">
-        <v-container>
+        <div class="container">
             <h1>This is the index.html</h1>
-
             <p class="border-left-p">Sales angel investor monetization seed money investor accelerator stealth iPhone non-disclosure agreement incubator learning curve value proposition seed round disruptive. Angel iies A financing creraction design startup stock stealth investor iPhone. IPad metrics android incubator accelerator monetization gen-z research & development founders infrastructure business-to-consumer traction.
             </p>
-        </v-container>
+        </div>
+
     </div>
-
 </section>
-   
-
 </main>
     
 
@@ -54,5 +45,11 @@
 
 {% endblock content%}
 {% block js%}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems);
+  });
 
+</script>
 {% endblock %}

@@ -2,30 +2,38 @@
 {% load static %}
 
 {% block content %}
+<div class="fixed-bg">
+    <div class="container">
 
-<v-container>
+        <h1>Collections</h1>
+        {% if user.is_authenticated %}
+        <a class="right" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Create Collection</button>
+        {% endif %}
+        {% for collection in collection_list %}
+            <a href="{% url 'gallery:collection_detail' collection.id %}"><h2>{{ collection.title }}</h2></a>
+            
+            <section class="gallery-section">
+                <div class="carousel">
+                    {% for image in collection.images.all %}
 
-    <h1>This is the gallery collection List</h1>
-    <a href="{% url 'gallery:collection_create' %}"><button>Create Collection</button>
+                        <a class="carousel-item" href="{% url 'gallery:image_detail' image.id%}">
+                            <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
+                        </a>
+                        
+                    {% endfor %}
+                </div>
+            
+            </section>
+        {% endfor %}
 
-    {% for collection in collection_list %}
-        <a href="{% url 'gallery:collection_detail' collection.id %}"><h2>{{ collection.title }}</h2></a>
-        
-        <section class="gallery-section">
-
-            {% for image in collection.images.all %}
-
-                <a href="{% url 'gallery:image_detail' image.id%}">
-                    <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
-                </a>
-                
-
-            {% endfor %}
-        
-        </section>
-    {% endfor %}
-
-   
-
-</v-container>
+    </div>
+</div>
 {% endblock content%}
+{% block js%}
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems);
+  });
+</script>
+{% endblock %}

@@ -10,31 +10,47 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet"> 
+    <!-- <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
   </head>
   <body>
-  <div id="vue-index">  
-    <v-app dark>
-            <v-toolbar fixed>
-                <v-toolbar-side-icon></v-toolbar-side-icon>
-                <v-toolbar-title><a href="{% url 'home:index'%}"><h1 class="logo-header">PHOTOVA</h1></a></v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-toolbar-items class="hidden-sm-and-down">
-                    <v-btn flat><a class="nav-link" href="{% url 'home:index'%}">Home</a></v-btn>
-                    <v-btn flat><a class="nav-link" href="{% url 'gallery:gallery' %}">View Gallery</a></v-btn>
-                    <v-btn><a class="nav-link" href="{% url 'gallery:new' %}">Upload Image</a></v-btn>
-                </v-toolbar-items>
-            </v-toolbar>
-
+  <!-- <div id="vue-index">   -->
+  <div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a class="logo-header" href="{% url 'home:index'%}">PHOTOVA</a>
+              
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                  <a class="" href="{% url 'home:index'%}">Home</a>
+                </li>
+                <li>
+                  <a class="" href="{% url 'gallery:gallery' %}">View Gallery</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                  <a class="" href="{% url 'gallery:new' %}">Add Image</a>
+                </li>
+                <li>
+                  <a class="waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
+                </li>
+                {% else %}
+                <li>
+                  <a class="waves-effect waves-light btn" href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+              </ul>
+          </div>     
+    </nav>
+  </div>
             {% block content %}
             {% endblock content %}
 
       <footer>
-        <v-container>
+        <div class="container">
           <div class="footer-grid">
             <section class="footer-grid-section-1">
               <h1>Where is section1?</h1>
@@ -66,15 +82,14 @@
             </section>
           </div>
         
-        </v-container>
+        </div>
       </footer>
-    </v-app>
-</div>
+<!-- </div> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-    <script>
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/vue"></script> {% endcomment %}
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script> -->
+    {% comment %} <script>
         new Vue({
             el:'#vue-index',
             delimiters: ['[[',']]'],
@@ -92,8 +107,14 @@
             }
         });
 
+    </script> {% endcomment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+      });
     </script>
-
     {% block js %}
     {% endblock %}
   </body>

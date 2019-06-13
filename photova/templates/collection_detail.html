@@ -2,22 +2,21 @@
 
 {% block content %}
 
-<v-container>
-        <h1>Collection Detail {{ collection }}</h1>
+<div class="container">
+        <h1>{{ collection }}</h1>
             <p>{{ collection.description }}</p>
-        <a href="{% url 'gallery:collection_update' collection.id %}">Update Collection</a>
-        <a href="{% url 'gallery:collection_delete' collection.id %}">Delete Collection</a>
+
 
     <div class="collection-detail-div">
             {% for image in collection.images.all %}
-                <p>{{ image }} 
+                <p>{{ image }} </p>
                   <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
-                </p>
+                
             {% endfor %}
     </div>
-
-</v-container>
-
-
-
+        {% if user.is_authenticated %}
+                <a class="waves-effect waves-light btn" href="{% url 'gallery:collection_update' collection.id %}">Update Collection</a>
+                <a class="waves-effect waves-light btn deep-orange darken-4" href="{% url 'gallery:collection_delete' collection.id %}">Delete Collection</a>
+        {% endif %}
+</div >
 {% endblock content %}
