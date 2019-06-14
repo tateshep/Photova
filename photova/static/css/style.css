@@ -20,6 +20,7 @@ deep-orange darken-4
 html {
     background-color: var(--bg-color);
 }
+
 .logo-header {
     font-weight: 100;
     margin-left:20px;
@@ -42,8 +43,10 @@ a {
 p {
     font-family: 'Montserrat', sans-serif;
     color: var(--heading-color);
-    font-size:24px;
     font-weight: 100;
+}
+.p-large {
+    font-size:24px;
 }
 form {
     color:var(--heading-color);
@@ -57,13 +60,24 @@ textarea {
     height:160px;
 }
 
-
+.clear-fix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 .collection-detail-div {
     margin-top:24px;
 }
+.collection-detail-div p {
+    margin-bottom:24px;
+}
 .gallery-section {
     display:flex;
+    align-items: center;
 
+}
+.collection-title {
+    font-size:2em
 }
 .btn {
     margin:10px;
@@ -96,6 +110,8 @@ textarea {
 
 footer {
     background-color:var(--bg-color);
+    padding-bottom:24px;
+
 }
 .fixed-bg {
     background-image: url("../images/abstract-dark-bg.jpg");
@@ -145,7 +161,7 @@ footer {
         grid-column: 1span/ 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;;
         align-items: center;
     }
     .footer-grid-section-2 {
@@ -153,7 +169,7 @@ footer {
         grid-column: 2span/ 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;;
         align-items: center;
 
     }
@@ -162,7 +178,7 @@ footer {
         grid-column: 3span/ 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;;
         align-items: center;
 
     }

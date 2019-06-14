@@ -7,12 +7,12 @@
 
         <h1>Collections</h1>
         {% if user.is_authenticated %}
-        <a class="right" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Create Collection</button>
+        <a class="right clear-fix" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Create Collection</button>
         {% endif %}
         {% for collection in collection_list %}
-            <a href="{% url 'gallery:collection_detail' collection.id %}"><h2>{{ collection.title }}</h2></a>
             
             <section class="gallery-section">
+            <a href="{% url 'gallery:collection_detail' collection.id %}"><h2 class="collection-title">{{ collection.title | upper | wordwrap:30 }}</h2></a>
                 <div class="carousel">
                     {% for image in collection.images.all %}
 
@@ -30,10 +30,10 @@
 </div>
 {% endblock content%}
 {% block js%}
-<script>
- document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems);
-  });
-</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems);
+    });
+    </script>
 {% endblock %}

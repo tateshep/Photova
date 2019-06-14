@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+<div class="container">
     <h1>Update {{ image }}</h1>
     <form enctype="multipart/form-data" action="" method="post">
         
@@ -8,7 +9,9 @@
         
         {{ form.as_p }}
 
-        <input type="submit" value="Update image">
+        <input class="waves-effect waves-light btn" type="submit" value="Update image">
 
     </form>
+
+</div>
 {% endblock content%}

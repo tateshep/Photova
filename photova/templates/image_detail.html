@@ -6,7 +6,7 @@
 
     <h1> {{ Image }}</h1>
 
-    <img class="img-detail" src="{{ MEDIA_URL }}{{ image.photo}}" alt="{{ Image.title }}">
+    <img class="img-detail materialboxed" src="{{ MEDIA_URL }}{{ image.photo}}" alt="{{ Image.title }}">
     <p>Added by: {{ image.author }}</p>
     {% if user.is_authenticated %}
     <p>
@@ -20,3 +20,12 @@
 
 
 {% endblock content %}
+
+{% block js%}
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems);
+  });
+</script>
+{% endblock %}
