@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+    <h1>Contact</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="waves-effect waves-dark btn" type="submit" value="Send">
+    </form>
+
+</div>
+{% endblock content %}

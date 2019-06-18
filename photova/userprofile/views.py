@@ -15,4 +15,13 @@ class SignUpView(generic.CreateView):
     success_url = reverse_lazy('gallery:gallery')
     template_name = 'signup.html'
 
+class MyCollections (generic.ListView):
+    model = Collection
+    template_name = 'userprofile_collections.html'
+    # print(auth.User)
+    # print (Collection.permitted_users)
 
+    def get_queryset(self):
+        return self.request.user.collection_set.all()
+        
+        # filter(permitted_users= 'auth.User' )

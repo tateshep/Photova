@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home.apps.HomeConfig',
     'gallery.apps.GalleryConfig',
     'userprofile.apps.UserprofileConfig',
+    'sendemail.apps.SendemailConfig',
 
 ]
 
@@ -132,3 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'data/')
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home:index'
 LOGOUT_REDIRECT_URL = 'home:index'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

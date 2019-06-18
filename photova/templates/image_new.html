@@ -2,16 +2,21 @@
 
 {% block content %}
 <div class="container">
-    <h1>Add new image</h1>
+    <h1>Add Image</h1>
     <form enctype="multipart/form-data" action="" method="post">
         
         {% csrf_token %}
-        
         {{ form.as_p }}
+        <!-- {{ form.title }}
+        {{ form.photo }} -->
 
-        <input class="waves-effect waves-light btn" type="submit" value="add image">
+        <input class="waves-effect waves-dark btn" type="submit" value="add image">
 
     </form>
 
 </div>
 {% endblock content%}
+
+{% block js %}
+
+{% endblock %}

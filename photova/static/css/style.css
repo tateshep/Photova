@@ -20,10 +20,20 @@ deep-orange darken-4
 html {
     background-color: var(--bg-color);
 }
+body {
+    padding-bottom:20px;
+    height:100vh;
+}
 
-.logo-header {
+.brand-logo {
     font-weight: 100;
     margin-left:20px;
+    display: flex;
+    align-items: center;
+}
+.brand-logo img {
+    margin-top:10px;
+    margin-right:10px;
 }
 h1 {
     color:var(--heading-color);
@@ -55,14 +65,15 @@ input {
     color: var(--heading-color);
 }
 
+
 textarea {
     color: var(--heading-color);
     height:160px;
 }
 
-.clear-fix:after {
-    content: "";
-    display: table;
+.clear-fix {
+    /* content: "";
+    display: table; */
     clear: both;
 }
 .collection-detail-div {
@@ -98,6 +109,19 @@ textarea {
 .nav-wrapper {
     background-color: var(--bg-color);
 }
+.nav-extended {
+    background-color: var(--bg-color);
+}
+
+.navbar-link {
+    font-family: 'Montserrat', sans-serif;
+}
+.welcome-header {
+    font-size:12px;
+    font-weight:100;
+    margin-left:20%;
+    display: inline;
+}
 /* .hero-parallax {
     height:80vh;
   } */
@@ -111,13 +135,17 @@ textarea {
 footer {
     background-color:var(--bg-color);
     padding-bottom:24px;
+    
 
 }
+
 .fixed-bg {
     background-image: url("../images/abstract-dark-bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin-top: -60px;
+    padding-bottom: 100px;
+
 }
 .container {
     margin-top:60px;
@@ -149,6 +177,16 @@ footer {
     .index-grid-2-2 {
         grid-row: 2span/ 1;
         grid-column: 2span/ 1;
+    }
+
+    footer {
+        bottom:0;
+        width: 100%;
+    }
+   
+    footer .container {
+        display: flex;
+        justify-content: space-around;
     }
 
     .footer-grid {

@@ -10,11 +10,12 @@
     <div class="collection-detail-div">
             {% for image in collection.images.all %}
                 <p>{{ image }} </p>
+                <a class="" href="{% url 'gallery:image_detail' image.id%}">
                   <div class="image-thumbnail" style="background-image:url('{{ MEDIA_URL }}{{ image.photo}}')"></div>
-                
+                </a>
             {% endfor %}
     </div>
-        {% if user.is_authenticated %}
+        {% if request.user.is_superuser %}
                 <a class="waves-effect waves-light btn" href="{% url 'gallery:collection_update' collection.id %}">Update Collection</a>
                 <a class="waves-effect waves-light btn deep-orange darken-4" href="{% url 'gallery:collection_delete' collection.id %}">Delete Collection</a>
         {% endif %}

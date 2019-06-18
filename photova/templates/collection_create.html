@@ -7,10 +7,30 @@
         
         {% csrf_token %}
         
-        {{ form.as_p }}
+        <p>
+            <label for="">Title</label>
+            {{ form.title }}
+        </p>
 
-        <input class="waves-effect waves-light btn" type="submit" value="Create">
+        <p>
+            <label for="">Description</label>
 
+            {{ form.description }}
+        </p>
+         <p>
+            <label for="">Add Images</label>
+            {{ form.images }}
+        </p>
+
+         <p>
+            <label>
+            {{ form.showcase_gallery }}
+            <span>Showcase Gallery?</span>
+            </label>
+        </p>
+
+        <input class="right waves-effect waves-light btn" type="submit" value="Create">
+        <br class="clear-fix">
     </form>
     
     </div>

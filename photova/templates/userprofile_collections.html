@@ -1,21 +1,14 @@
 {% extends 'base.html' %} 
-{% load static %}
 
 {% block content %}
-<div class="fixed-bg">
-    <div class="container">
 
-        <h1>Collections</h1>
-        {% if request.user.is_superuser %}
-        <a class="" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Create Collection</button>
-        <br class="clear-fix">
-
-        {% endif %}
-        {% for collection in collection_list %}
+<div class='container'>
+    <h1>My Collections</h1>
+    {% for collection in collection_list %}
             
-            <section class="gallery-section ">
+            <section class="gallery-section">
             <a href="{% url 'gallery:collection_detail' collection.id %}"><h2 class="collection-title">{{ collection.title | upper | wordwrap:30 }}</h2></a>
-                <div class="carousel">
+                <div class="carousel ">
                     {% for image in collection.images.all %}
 
                         <a class="carousel-item" href="{% url 'gallery:image_detail' image.id%}">
@@ -28,9 +21,9 @@
             </section>
         {% endfor %}
 
-    </div>
-</div>
-{% endblock content%}
+</div class='container'>
+
+{% endblock content %}
 {% block js%}
     <script>
     document.addEventListener('DOMContentLoaded', function() {
