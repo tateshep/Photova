@@ -23,4 +23,3 @@ function myEvents (imageThumbs) {
 };
 myEvents(imageThumbs);
 
-console.log('loaded');

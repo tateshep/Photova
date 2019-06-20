@@ -28,7 +28,7 @@
         </div>
 
 {% if request.user.is_superuser %}
-        <a class="" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Add Post</button></a>
+        <a class="" href="{% url 'blog:blog_create' %}"><button class="waves-effect waves-light btn">Add Post</button></a>
 
 {% endif %}
 </main>

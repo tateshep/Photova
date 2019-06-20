@@ -11,7 +11,7 @@ class Image(models.Model):
         return self.title
 
     def get_absolute_url (self):
-        return reverse('gallery:gallery')
+        return reverse('gallery:image_detail', args=(self.pk,))
 
 
 class Collection(models.Model):
