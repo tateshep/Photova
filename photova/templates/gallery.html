@@ -6,15 +6,11 @@
     <div class="container">
 
         <h1>Collections</h1>
-        {% if request.user.is_superuser %}
-        <a class="" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Create Collection</button>
-        <br class="clear-fix">
-
-        {% endif %}
+        
         {% for collection in collection_list %}
             
-            <section class="gallery-section ">
-            <a href="{% url 'gallery:collection_detail' collection.id %}"><h2 class="collection-title">{{ collection.title | upper | wordwrap:30 }}</h2></a>
+            <section class="gallery-section">
+            <a href="{% url 'gallery:collection_detail' collection.id %}"><h3 class="collection-title">{{ collection.title | upper }} <i class="material-icons" style="position:relative;top:6px;">arrow_forward</i></h3></a>
                 <div class="carousel">
                     {% for image in collection.images.all %}
 
@@ -27,7 +23,10 @@
             
             </section>
         {% endfor %}
-
+        {% if request.user.is_superuser %}
+        <a class="" href="{% url 'gallery:collection_create' %}"><button class="waves-effect waves-light btn">Create Collection</button>
+        </a>
+        {% endif %}
     </div>
 </div>
 {% endblock content%}

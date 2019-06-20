@@ -80,6 +80,7 @@ class ImageDetail(DetailView):
     model = Image
     template_name = 'image_detail.html'
 
+
 class ImageUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'is_staff'
     model = Image

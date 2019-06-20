@@ -6,22 +6,18 @@
     <form action="" method="post">
         
         {% csrf_token %}
-        
         <p>
             <label for="">Title</label>
             {{ form.title }}
         </p>
-
         <p>
             <label for="">Description</label>
-
             {{ form.description }}
         </p>
          <p>
             <label for="">Add Images</label>
             {{ form.images }}
         </p>
-
          <p>
             <label>
             {{ form.showcase_gallery }}

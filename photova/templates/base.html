@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
   </head>
   <body>
 
@@ -29,66 +29,79 @@
     <li><div class="user-view">
       <div class="">
        <a href="{% url 'home:index'%}">
-        <img class="mobile-logo" src="{% static 'images/logo.png' %}">
         <h3 class="mobile-header">PHOTOVA</h3>
        </a> 
       </div>
     </div></li>
     {% if user.is_authenticated %}
-    <li><a href="#name"><span class="white-text name">Welcome back {{ user }}</span></a></li>
+    <li><a href="#name"><span class="name">Welcome back {{ user }}</span></a></li>
     {% endif %}
+    <!-- <li class="mobile-toggle">
+        <div class="theme-switch-div">
+        <label class="theme-switch" for="checkbox">
+        <input type="checkbox" class="checkbox" />
+        <div class="my-slider round">
+        </div>
+        </label>
+        <span class="theme-text" style="">Dark</span>
+        </div>
+      </li> -->
     <li><div class="divider"></div></li>
-    <li><a class="white-text waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
-    <li><a class="white-text waves-effect" href="{% url 'sendemail:contact' %}">Contact</a></li>
+    <li><a class="waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
+    <li><a class="waves-effect" href="{% url 'sendemail:contact' %}">Contact</a></li>
     {% if user.is_authenticated %}
-                  {% if request.user.is_superuser %}
-                  <li>
-                    <a class="white-text waves-effect navbar-link " href="{% url 'gallery:new' %}">Add Image</a>
-                  </li>
-                  {% endif %}
-                <li>
-                  <a class="white-text waves-effect navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
-                </li>
-                <li>
-                  <a class="white-text waves-effect navbar-link waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
-                </li>
-                {% else %}
-                <li>
-                  <a class="white-text waves-effect navbar-link waves-effect waves-light btn auth-btn" href="{% url 'login' %}">Login</a>
-                </li>
-                <li>
-                    <a class="white-text waves-effect navbar-link waves-effect waves-light btn auth-btn" href="{% url 'userprofile:signup' %}">Sign Up</a>
-                </li>
-                {% endif %}
+        {% if request.user.is_superuser %}
+        <li>
+          <a class="waves-effect navbar-link " href="{% url 'gallery:new' %}">Add Image</a>
+        </li>
+        {% endif %}
+      <li>
+        <a class="waves-effect navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
+      </li>
+      <li>
+        <a class="waves-effect navbar-link waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
+      </li>
+      {% else %}
+      <li>
+        <a class="waves-effect navbar-link waves-effect waves-light btn auth-btn" href="{% url 'login' %}">Login</a>
+      </li>
+      <li>
+          <a class="waves-effect navbar-link waves-effect waves-light btn auth-btn" href="{% url 'userprofile:signup' %}">Sign Up</a>
+      </li>
+      {% endif %}
   </ul>
         
 </div>
 
-
   <div class="navbar-fixed desktop-nav">
     <nav class="nav-extended">
         <div class="nav-wrapper">
-            <a class="brand-logo" href="{% url 'home:index'%}"><img height="40px"src="{% static 'images/logo.png' %}"></img>PHOTOVA</a>
+            <a class="brand-logo" href="{% url 'home:index'%}"><h4>PHOTOVA</h4></a>
             {% if user.is_authenticated %}
             <h4 class="welcome-header hide-on-med-and-down">Welcome back {{ user }}</h4> 
+
             {% endif %}
               <ul id="" class="right">
-                
+                    
                 <li>
                   <a class="navbar-link " href="{% url 'gallery:gallery' %}">View Gallery</a>
+                </li>
+                <li>
+                  <a class="navbar-link " href="{% url 'blog:index' %}">Blog</a>
                 </li>
                 <li>
                   <a class="navbar-link " href="{% url 'sendemail:contact' %}">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
-                  {% if request.user.is_superuser %}
-                  <li>
-                    <a class="navbar-link " href="{% url 'gallery:new' %}">Add Image</a>
-                  </li>
-                  {% endif %}
+                  
                 <li>
                   <a class="navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
                 </li>
+                {% if request.user.is_superuser %}
+                  <li>
+                    <a class="navbar-link waves-effect waves-light btn " href="{% url 'gallery:new' %}">Add Image</a>
+                  </li>
+                  {% endif %}
                 <li>
                   <a class="navbar-link waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
                 </li>
@@ -111,6 +124,18 @@
              
             {% block content %}
             {% endblock content %}
+
+
+    <section id="theme-switch-section">
+      <div class="theme-switch-div">
+      <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="my-slider round">
+      </div>
+      </label>
+      <span id="theme-text" style=""></span>
+      </div>
+    </section>
 
       <footer>
         <div class="container">
@@ -150,6 +175,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static '/scripts/toggle.js' %}"></script>
+    <!-- <script src="{% static '/scripts/rightClickProtect.js' %}"></script> -->
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -165,6 +192,7 @@
       var instances = M.FormSelect.init(elems);
       });
     </script>
+
     {% block js %}
     {% endblock %}
   </body>

@@ -3,7 +3,8 @@
 {% block content %}
 
 <div class="container">
-        <a class="waves-effect waves-light btn" href="{% url 'gallery:gallery'%}">Gallery</a>
+
+        <a class="arrow-back" href="{% url 'gallery:gallery'%}"><i class="material-icons" style="position:relative;top:6px;">arrow_back</i>Gallery</a>
         <h1>{{ collection }}</h1>
             <p class="border-left-p p-large">{{ collection.description }}</p>
 
