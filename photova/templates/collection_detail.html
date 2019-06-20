@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+        <a class="arrow-back" href="{% url 'gallery:gallery'%}"><i class="material-icons" style="position:relative;top:6px;">arrow_back</i>Gallery</a>
+        <h1>{{ collection }}</h1>
+            <p class="border-left-p p-large">{{ collection.description }}</p>
+
+
+    <div class="collection-detail-div">
+            {% for image in collection.images.all %}
+                
+                <a class="" style = '-webkit-transform: translate3d(0px, 0px, 0px)' href="{% url 'gallery:image_detail' image.id%}">
+                  <img class="collection-detail-image" src="{{ MEDIA_URL }}{{ image.photo}}">
+                </a>
+            {% endfor %}
+    </div>
+        {% if request.user.is_superuser %}
+                <a class="waves-effect waves-light btn" href="{% url 'gallery:collection_update' collection.id %}">Update Collection</a>
+                <a class="waves-effect waves-light btn deep-orange darken-4" href="{% url 'gallery:collection_delete' collection.id %}">Delete Collection</a>
+        {% endif %}
+</div >
+{% endblock content %}
+{% block js %}
+        <script src="{% static '/scripts/collectionDetail.js' %}"></script>
+{% endblock%}

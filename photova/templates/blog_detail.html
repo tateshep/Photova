@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<div class="container">
+        <a class="arrow-back" href="{% url 'blog:index'%}"><i class="material-icons" style="position:relative;top:6px;">arrow_back</i>Blog</a>
+
+      <div class="row" style="margin-top:12px;">
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-image">
+          <img class="materialboxed"src="{{ MEDIA_URL }}{{ blogpost.thumbnail_image.photo }}">
+          <span class="card-title">{{ blogpost.title }}</span>
+        </div>
+        <div class="card-content blogpost-p">
+          <p class="">{{ blogpost.body | linebreaks }}</p>
+            
+            <div class="blogpost-images">
+               {% for image in blogpost.images.all %}
+               <img class="collection-detail-image materialboxed" src="{{ MEDIA_URL }}{{ image.photo }}" alt="">
+                {% endfor %}
+            </div>
+         
+
+        </div>
+        <div class="">
+          <a class="" href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'blog:blog_delete' blogpost.id %}">Delete Post</a>
+    <a class="waves-effect waves-light btn right" href="{% url 'blog:blog_update' blogpost.id %}">Edit Post</a>
+        
+</div>
+
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static '/scripts/materialbox.js' %}"></script>
+    <script src="{% static '/scripts/collectionDetail.js' %}"></script>
+
+{% endblock %}
