@@ -10,9 +10,10 @@
       <div class="card">
         <div class="card-image">
           <img class="materialboxed"src="{{ MEDIA_URL }}{{ blogpost.thumbnail_image.photo }}">
-          <span class="card-title">{{ blogpost.title }}</span>
+          <a  href="" class="card-title"><i class="material-icons" style="font-size: 2em;" style="position:relative;top:6px;">arrow_downward</i> </a>
         </div>
         <div class="card-content blogpost-p">
+        <h1>{{ blogpost.title }}</h1>
           <p class="">{{ blogpost.body | linebreaks }}</p>
             
             <div class="blogpost-images">
@@ -23,15 +24,18 @@
          
 
         </div>
-        <div class="">
-          <a class="" href="#">This is a link</a>
+        <div style="padding-bottom:6px;" class="">
+          <p style="color:#ccc;" class="" href="#">Author: {{ blogpost.author }}</p>
+          <p style="color:#ccc;" class="" href="#">Published: {{ blogpost.created }}</p>
+
         </div>
       </div>
     </div>
   </div>
+  {% if request.user.is_superuser %}
     <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'blog:blog_delete' blogpost.id %}">Delete Post</a>
     <a class="waves-effect waves-light btn right" href="{% url 'blog:blog_update' blogpost.id %}">Edit Post</a>
-        
+        {% endif %}
 </div>
 
 {% endblock content %}

@@ -31,10 +31,7 @@
 </div>
 {% endblock content%}
 {% block js%}
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.carousel');
-        var instances = M.Carousel.init(elems);
-    });
-    </script>
+    <script src="{% static '/scripts/materialcarousel.js' %}"></script>
+    <script src="{% static '/scripts/arrowAnimation.js' %}"></script>
+
 {% endblock %}

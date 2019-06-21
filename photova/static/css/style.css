@@ -141,6 +141,12 @@ a {
 a:hover {
     color: var(--primary-color);
 }
+@-webkit-keyframes slidearrow { from { left: 0px} to { left: 24px; }  }
+        @keyframes slidearrow { from { left: 0px} to { left: 24px; }  }
+
+.arrow-animation {
+    animation: slidearrow 0.75s ease-in-out 0s infinite alternate;
+}
 .arrow-back {
     font-size:1.4em;
     font-weight: 100;
@@ -163,24 +169,16 @@ form {
 .card {
     background-color:var(--bg-color);
 }
+.card-title {
+    font-size: 200%;
+}
+.card-content {
+    margin-top:24px;
+}
 
 input {
     color: var(--heading-color);
 }
-/* input[type="file"] {
-    display:hidden;
-}
-
-.custom-file-upload {
-    border: 1px solid var(--primary-color);
-    background-color:var(--primary-color);
-    color:var(--heading-color);
-    border-radius:3px;
-    display: inline-block;
-    padding: 24px 24px;
-    cursor: pointer;   
-} */
-
 
 textarea {
     color: var(--heading-color);
@@ -234,16 +232,18 @@ textarea {
     height: 25vh;
     margin-top:10px;
     margin-bottom:10px;
+    margin-left:6px;
+    margin-right:6px;
     width:auto;
     transition: transform 0.25s;
     overflow: visible;
-    border: 3px solid var(--bg-color);
+    /* border: 3px solid var(--bg-color); */
     
 }
 .collection-detail-image:hover {
     overflow: visible;
-    box-shadow: 0px 0px 40px #303030;
-    border:none;
+    /* box-shadow: 0px 0px 40px #303030; */
+    border: 3px solid transparent;
 }
 .img-detail {
     max-width: 100%;
@@ -304,17 +304,20 @@ nav ul a {
 .parallax-container {
     height:100vh;
   }
+
+  @-webkit-keyframes slideintop { from { top: -1600px} to { top: -800px }  }
+        @keyframes slideintop { from { top: -1600px} to { top: -800px }  }
 .hero-logo {
    display: flex;
    height: 0;
    justify-content: center;
-   
 }
 .hero-logo img{
     width:auto;
     height:40vh;
     position: relative;
-    top: -600px;
+    animation: 3s slideintop 0s ease-in-out;
+
 }
 .border-left-p {
     border-left: 3px solid var(--heading-color);
@@ -331,14 +334,6 @@ footer {
     background-color:var(--bg-color);
 }
 
-/* .fixed-bg {
-    background-image: url("../images/abstract-dark-bg.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin-top: -64px;
-    padding-bottom: 100px;
-    padding-top: 40px;
-} */
 .container {
     margin-bottom:40px;
 }
@@ -354,11 +349,11 @@ footer {
     color:var(--font-color);
 }
 .blogpost-images {
+    margin-top:24px;
     display:flex;
     flex-wrap:wrap;
     justify-content: space-around;
 }
-
 
 .index-grid-img {
     height:500px;
@@ -386,9 +381,6 @@ footer {
         grid-template-columns: 1fr 1fr ;
     }
 
-    /* .hero-logo {
-        
-    } */
     .hero-logo img {
         height:650px;
         width: auto;
