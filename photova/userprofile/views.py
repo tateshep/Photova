@@ -1,3 +1,6 @@
+
+from django.conf import settings
+from django.http import HttpResponse, FileResponse
 from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
@@ -22,4 +25,13 @@ class MyCollections (generic.ListView):
 
     def get_queryset(self):
         return self.request.user.collection_set.all()
-        
+
+class DownloadPhotoView(generic.DetailView):
+    def get(self, request, *args, **kwargs):
+        image_pk = self.kwargs.get('pk',None)
+        if image_pk is None:
+            raise ValueError ("Found empty image_pk")
+        my_file = Image.objects.get(id=image_pk)
+        my_filename = my_file.title + '.jpg'
+        response = FileResponse(my_file.photo, as_attachment=True, filename=my_filename)
+        return response

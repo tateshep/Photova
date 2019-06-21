@@ -36,16 +36,7 @@
     {% if user.is_authenticated %}
     <li><a href="#name"><span class="name">Welcome back {{ user }}</span></a></li>
     {% endif %}
-    <!-- <li class="mobile-toggle">
-        <div class="theme-switch-div">
-        <label class="theme-switch" for="checkbox">
-        <input type="checkbox" class="checkbox" />
-        <div class="my-slider round">
-        </div>
-        </label>
-        <span class="theme-text" style="">Dark</span>
-        </div>
-      </li> -->
+  
     <li><div class="divider"></div></li>
     <li><a class="waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
     <li><a class="waves-effect" href="{% url 'sendemail:contact' %}">Contact</a></li>

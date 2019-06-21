@@ -185,6 +185,24 @@ textarea {
     height:160px;
 }
 
+/* materialize class, used in mycollections template*/
+@media only screen and (min-width:768px){
+    .collection {
+        width:50%;
+    }
+    .my-collections-div {
+        display:flex;
+        justify-content: center;
+    }
+}
+
+.collection-item {
+    background-color:var(--bg-color) !important;
+}
+.collection-item span {
+    color:var(--heading-color) ;
+}
+
 .clear-fix {
     /* content: "";
     display: table; */
