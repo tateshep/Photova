@@ -45,10 +45,17 @@
         <li>
           <a class="waves-effect navbar-link " href="{% url 'gallery:new' %}">Add Image</a>
         </li>
+
+        
         {% endif %}
       <li>
         <a class="waves-effect navbar-link " href="{% url 'userprofile:my_collections' %}">View My Collections</a>
       </li>
+        {% if request.user.is_superuser %}
+          <li>
+              <a class="navbar-link waves-effect waves-light btn " href="{% url 'home:admin_view' %}">Admin</a>
+            </li>
+        {% endif %}
       <li>
         <a class="waves-effect navbar-link waves-effect waves-light btn" href="{% url 'logout' %}">logout</a>
       </li>

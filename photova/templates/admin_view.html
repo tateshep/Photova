@@ -84,7 +84,9 @@
 
         <li>
             <div class="collapsible-header">
-                <h2><a href="{% url 'userprofile:signup' %}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>  Users</h2>
+                <h2>
+                    <!-- <a href="{% url 'userprofile:signup' %}" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">add</i></a>   -->
+                    Users</h2>
             </div>
             <div class="collapsible-body">
                 <ul class="collection">
@@ -92,10 +94,10 @@
                 <li class="collection-item">
                     <span class="title">{{ user.username }}</span>
                     
-                    <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">delete</i></a>
+                  <!-- <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">delete</i></a>
                     <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">edit</i></a>
-                    <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">visibility</i></a>
-                    
+                    <a class="right" href=""><i style="position:relative;top:6px;"class="material-icons">visibility</i></a> 
+                     -->
                 </li> 
                     {% endfor %}
                 </ul>
