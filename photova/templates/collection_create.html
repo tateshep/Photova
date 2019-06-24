@@ -19,11 +19,16 @@
             {{ form.images }}
         </p>
          <p>
+            <label for="">Permitted Users</label>
+            {{ form.permitted_users }}
+        </p>
+         <p>
             <label>
             {{ form.showcase_gallery }}
             <span>Showcase Gallery?</span>
             </label>
         </p>
+       
 
         <input class="right waves-effect waves-light btn" type="submit" value="Create">
         <a class="waves-effect waves-light btn right deep-orange darken-4" href="{% url 'gallery:gallery' %}">Cancel</a>

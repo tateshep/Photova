@@ -27,6 +27,8 @@ class MyCollections (generic.ListView):
         return self.request.user.collection_set.all()
 
 class DownloadPhotoView(generic.DetailView):
+    # Download photos functionality, get the pk, from selection
+    # Uses pk to respond with file attachement titled by image title
     def get(self, request, *args, **kwargs):
         image_pk = self.kwargs.get('pk',None)
         if image_pk is None:

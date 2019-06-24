@@ -25,14 +25,14 @@ class CollectionCreate(PermissionRequiredMixin, CreateView):
     permission_required = 'is_staff'
     model = Collection
     template_name = 'collection_create.html'
-    fields= ['title','description','images','showcase_gallery']
+    fields= ['title','description','images','showcase_gallery','permitted_users']
 
 
 class CollectionUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'is_staff'
     model = Collection
     template_name = 'collection_update.html'
-    fields= ['title','description','images','showcase_gallery']
+    fields= ['title','description','images','showcase_gallery','permitted_users']
 
 
 class CollectionDelete(PermissionRequiredMixin, DeleteView):

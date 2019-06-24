@@ -25,8 +25,8 @@ if (currentTheme) {
         toggleSwitch.checked = true;
 
     } else {
+        toggleSwitch.checked = false;
     }
 }
 
 toggleSwitch.addEventListener('change',switchTheme,false);
-// addEvents(toggleSwitch);

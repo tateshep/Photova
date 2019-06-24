@@ -21,7 +21,7 @@
         <h1>Download Images</h1>
         <div class="my-collections-div">
 
-            <ul class="collection">
+            <ul class="collection my-collection">
                 {% for image in collection.images.all %}
                 <li class="collection-item avatar">
                     <img src="{{ MEDIA_URL }}{{ image.photo}}" alt="" class="circle">
