@@ -5,10 +5,12 @@ from django.contrib.auth.models import User
 
 from gallery.models import Image, Collection
 from blog.models import BlogPost
+from django.contrib.admin.views.decorators import staff_member_required
 
 def homeView(request):
     return render(request,'index.html', {})
 
+@staff_member_required
 def adminView(request):
     image_list = Image.objects.order_by('title')
     collection_list = Collection.objects.order_by('title')
