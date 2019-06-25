@@ -1,3 +1,5 @@
+// Scaling image animation js
+
 
 let imageThumbs = document.getElementsByClassName('collection-detail-image');
 let imageThumbsArray= [];
@@ -10,14 +12,12 @@ function myEvents (imageThumbs) {
             imageThumbs[i].addEventListener("mouseenter",function(){
                 this.parentElement.style.zIndex="2";
                 this.style.transform = `scale(${scaleAmount},${scaleAmount})`;
-
-                // console.log('should scale');
+                // console.log(' scale');
             })
             imageThumbs[i].addEventListener("mouseout",function(){
                 this.parentElement.style.zIndex="1";
                 this.style.transform = `scale(${resetAmount},${resetAmount})`;
-                // console.log('should unscale');
-
+                // console.log(' unscale');
             })
     }
 };

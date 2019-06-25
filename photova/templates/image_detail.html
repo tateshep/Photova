@@ -10,9 +10,11 @@
         {% if collection.showcase_gallery %}
         <a href="{% url 'gallery:collection_detail' collection.id %}"> | {{ collection.title }}</a>
         {% endif %}
-
       {% endfor%} 
-    
+      
+      {% if user.is_authenticated %}
+        <a href="{% url 'userprofile:my_collections' %}"> | My Collections</a>
+      {% endif %}
     </p>
     <img class="z-depth-4 img-detail materialboxed" src="{{ MEDIA_URL }}{{ image.photo}}" alt="{{ Image.title }}">
     <p>Title: {{ image.title }}</p>

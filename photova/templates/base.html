@@ -77,7 +77,6 @@
             <a class="brand-logo" href="{% url 'home:index'%}"><h4>PHOTOVA</h4></a>
             {% if user.is_authenticated %}
             <h4 class="welcome-header hide-on-med-and-down">Welcome back {{ user }}</h4> 
-
             {% endif %}
               <ul id="" class="right">
                     
@@ -119,10 +118,7 @@
         
     </nav>
   </div>
-   <ul>
-             
-             
-             
+
             {% block content %}
             {% endblock content %}
 

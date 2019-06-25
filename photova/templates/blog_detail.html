@@ -11,11 +11,11 @@
       <div class="card">
         <div class="card-image">
           <img class="materialboxed"src="{{ MEDIA_URL }}{{ blogpost.thumbnail_image.photo }}">
-          <a  href="" class="card-title"><i class="material-icons" style="font-size: 2em;" style="position:relative;top:6px;">arrow_downward</i> </a>
+          <a  href="#blog-content" class="card-title"><i class="material-icons" style="font-size: 2em;" style="position:relative;top:6px;">arrow_downward</i> </a>
         </div>
-        <div class="card-content blogpost-p">
-        <h1>{{ blogpost.title }}</h1>
-          <p class="">{{ blogpost.body | linebreaks }}</p>
+        <div id="blog-content" class="card-content blogpost-p">
+        <h1 >{{ blogpost.title }}</h1>
+          <p  class="">{{ blogpost.body | linebreaks }}</p>
             
             <div class="blogpost-images">
                {% for image in blogpost.images.all %}
@@ -86,5 +86,7 @@
 {% block js %}
     <script src="{% static '/scripts/materialbox.js' %}"></script>
     <script src="{% static '/scripts/collectionDetail.js' %}"></script>
+    <script src="{% static '/scripts/arrowAnimationVertical.js' %}"></script>
+    <script src="{% static '/scripts/arrowAnimationBack.js' %}"></script>
 
 {% endblock %}
