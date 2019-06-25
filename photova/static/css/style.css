@@ -359,6 +359,10 @@ footer {
 .container {
     margin-bottom:40px;
 }
+.comment-list {
+    padding: 12px;
+    margin: 12px;
+}
 
 .blog-post-div {
     margin-top:1.5em;
