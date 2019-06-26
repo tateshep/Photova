@@ -39,6 +39,7 @@
   
     <li><div class="divider"></div></li>
     <li><a class="waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
+    <li><a class="waves-effect " href="{% url 'blog:index' %}">Blog</a></li>
     <li><a class="waves-effect" href="{% url 'sendemail:contact' %}">Contact</a></li>
     {% if user.is_authenticated %}
         {% if request.user.is_superuser %}
