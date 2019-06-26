@@ -9,6 +9,9 @@ def successView(request):
     return render(request,'contact-success.html', {})
 
 def contactView(request):
+    # contact view, uses the contact form in forms.py
+    # response viewable in server log
+
     if request.method == 'GET':
         form = ContactForm()
     else:

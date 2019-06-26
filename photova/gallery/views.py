@@ -10,6 +10,9 @@ from .models import Image, Collection
 from .forms import UploadPhotoForm
 
 class HomeView(ListView):
+    # The main gallery page. Displays all the collections that have been
+    # set with the Showcase Gallery option as true
+
     model = Collection
     template_name = 'gallery.html'
 
@@ -22,6 +25,8 @@ class CollectionDetail(DetailView):
 
 
 class CollectionCreate(PermissionRequiredMixin, CreateView):
+    # only staff users may use 
+
     permission_required = 'is_staff'
     model = Collection
     template_name = 'collection_create.html'
@@ -29,6 +34,8 @@ class CollectionCreate(PermissionRequiredMixin, CreateView):
 
 
 class CollectionUpdate(PermissionRequiredMixin, UpdateView):
+    # only staff users may use 
+
     permission_required = 'is_staff'
     model = Collection
     template_name = 'collection_update.html'
@@ -36,12 +43,16 @@ class CollectionUpdate(PermissionRequiredMixin, UpdateView):
 
 
 class CollectionDelete(PermissionRequiredMixin, DeleteView):
+    # only staff users may use 
+
     permission_required = 'is_staff'
     model = Collection
     template_name = 'collection_delete.html'
     success_url = reverse_lazy('gallery:gallery')
 
 class NewImage(PermissionRequiredMixin, CreateView):
+    # only staff users may use 
+
     permission_required = 'is_staff'
     model = Image
     form_class = UploadPhotoForm
@@ -54,6 +65,10 @@ class NewImage(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def post(self,request, *args,**kwargs):
+        # This method was necessary to allow multiple file uploads when adding images
+        # In the case of multiple file uploads, they will be titled with the title associated
+        # with the upload, appended with numbers starting at 0
+
         i = 0
         form_class= self.get_form_class()
         form = self.get_form(form_class)
@@ -82,6 +97,8 @@ class ImageDetail(DetailView):
 
 
 class ImageUpdate(PermissionRequiredMixin, UpdateView):
+        # only staff users may use 
+
     permission_required = 'is_staff'
     model = Image
     template_name = 'image_update.html'
@@ -89,6 +106,8 @@ class ImageUpdate(PermissionRequiredMixin, UpdateView):
 
 
 class ImageDelete(PermissionRequiredMixin, DeleteView):
+        # only staff users may use 
+
     permission_required = 'is_staff'
     model = Image
     template_name = 'image_delete.html'
