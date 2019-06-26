@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'tateshep.pythonanywhere.com',
+    'localhost',
 ]
 
 
