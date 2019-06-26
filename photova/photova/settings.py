@@ -25,7 +25,9 @@ SECRET_KEY = 'jz1wgfa45$y@3n4dj!+8*42yw5(dlw@#(8&q7cssf1k$#l8v(a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'tateshep.pythonanywhere.com',
+]
 
 
 # Application definition
@@ -132,6 +134,8 @@ SITE_ID = 1
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 MEDIA_URL = '/data/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'data/')
