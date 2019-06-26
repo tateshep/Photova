@@ -297,8 +297,9 @@ nav ul a {
     height:10vh;
     
 }
-.mobile-nav {
+.mobile-nav fixed {
     background-color: var(--bg-color);
+    z-index:4;
 }
 .sidenav li>a {
     color:var(--heading-color);
@@ -352,6 +353,7 @@ nav ul a {
 .hero-logo img {
     top: -800px;
     width: auto;
+    z-index: 3;
 }
 
   @-webkit-keyframes slideintop { from { top: -1600px} to { top: -800px }  }
