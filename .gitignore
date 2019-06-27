@@ -124,6 +124,4 @@ dmypy.json
 .pyre/
 
 # Photova files
-/photova/data
-/photova/media
 /photova/db.sqlite3
