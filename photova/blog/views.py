@@ -10,6 +10,7 @@ class HomeView(ListView):
     template_name = 'blog_index.html'
 
     def get_queryset(self):
+        # organize blog posts by created date newest first
         return BlogPost.objects.all().order_by('-created')
 
 class BlogDetailView(DetailView):
@@ -24,6 +25,8 @@ class BlogCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('blog:index')
 
     def form_valid(self, form):
+        # blog author set as the user that creates the blog
+        
         form.instance.author = self.request.user
         print(form.is_valid)
 

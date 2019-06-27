@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class UserCreationFormEmail(UserCreationForm):
+    # Custom form for user creation requiring email
+    
     email = forms.EmailField(required = True)
     class Meta:
         model = User

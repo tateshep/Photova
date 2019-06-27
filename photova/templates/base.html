@@ -39,6 +39,7 @@
   
     <li><div class="divider"></div></li>
     <li><a class="waves-effect" href="{% url 'gallery:gallery' %}">View Gallery</a></li>
+    <li><a class="waves-effect " href="{% url 'blog:index' %}">Blog</a></li>
     <li><a class="waves-effect" href="{% url 'sendemail:contact' %}">Contact</a></li>
     {% if user.is_authenticated %}
         {% if request.user.is_superuser %}
@@ -77,7 +78,6 @@
             <a class="brand-logo" href="{% url 'home:index'%}"><h4>PHOTOVA</h4></a>
             {% if user.is_authenticated %}
             <h4 class="welcome-header hide-on-med-and-down">Welcome back {{ user }}</h4> 
-
             {% endif %}
               <ul id="" class="right">
                     
@@ -119,10 +119,7 @@
         
     </nav>
   </div>
-   <ul>
-             
-             
-             
+
             {% block content %}
             {% endblock content %}
 

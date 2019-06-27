@@ -2,7 +2,7 @@
     Animate forward arrow
 */
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
-var collectionTitle = document.getElementsByClassName('collection-title');
+var collectionTitle = document.getElementsByClassName('collection-title-animation');
 var forwardArrows = document.getElementsByClassName('arrow-animation');
 
 function animateArrow() {

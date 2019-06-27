@@ -10,7 +10,7 @@
         {% for collection in collection_list %}
             
             <section class="gallery-section">
-            <a href="{% url 'gallery:collection_detail' collection.id %}"><h3 class="collection-title">{{ collection.title | upper }} <i class="material-icons" style="position:relative;top:6px;">arrow_forward</i></h3></a>
+            <a href="{% url 'gallery:collection_detail' collection.id %}"><h3 class="collection-title-animation collection-title">{{ collection.title | upper }} <i class="material-icons" style="position:relative;top:6px;">arrow_forward</i></h3></a>
                 <div class="carousel">
                     {% for image in collection.images.all %}
 

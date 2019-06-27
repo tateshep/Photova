@@ -32,6 +32,7 @@ deep-orange darken-4
 /********* Dark Light Toggle ***********/
 #theme-switch-section {
     position: fixed;
+    z-index:3;
     top:90%;
     left:75%;
 }
@@ -143,11 +144,25 @@ a {
 a:hover {
     color: var(--primary-color);
 }
+
 @-webkit-keyframes slidearrow { from { left: 0px} to { left: 24px; }  }
         @keyframes slidearrow { from { left: 0px} to { left: 24px; }  }
 
 .arrow-animation {
     animation: slidearrow 0.75s ease-in-out 0s infinite alternate;
+}
+
+@-webkit-keyframes arrowback { from { left: 0px} to { left: -24px; }  }
+        @keyframes arrowback { from { left: 0px} to { left: -24px; }  }
+
+.arrow-animation-back {
+    animation: arrowback 0.75s ease-in-out 0s infinite alternate;
+}
+@-webkit-keyframes arrowvert { from { bottom: 0px} to { bottom: 24px; }  }
+        @keyframes arrowvert { from { bottom: 0px} to { bottom: 24px; }  }
+
+.arrow-animation-vertical {
+    animation: arrowvert 0.75s ease-in-out 0s infinite alternate;
 }
 .arrow-back {
     font-size:1.4em;
@@ -237,6 +252,7 @@ textarea {
     border-left: 3px solid var(--primary-color);
 
 }
+
 .btn {
     margin:10px;
 }
@@ -279,9 +295,11 @@ nav ul a {
 }
 .mobile-logo {
     height:10vh;
+    
 }
-.mobile-nav {
+.mobile-nav fixed {
     background-color: var(--bg-color);
+    z-index:4;
 }
 .sidenav li>a {
     color:var(--heading-color);
@@ -323,9 +341,20 @@ nav ul a {
     margin-left:20%;
     display: inline;
 }
+@media only screen and (max-width:1230px){
+    .welcome-header {
+        display: none;
+    }
+}
 .parallax-container {
     height:100vh;
   }
+
+.hero-logo img {
+    top: -800px;
+    width: auto;
+    z-index: 3;
+}
 
   @-webkit-keyframes slideintop { from { top: -1600px} to { top: -800px }  }
         @keyframes slideintop { from { top: -1600px} to { top: -800px }  }
@@ -358,6 +387,10 @@ footer {
 
 .container {
     margin-bottom:40px;
+}
+.comment-list {
+    padding: 12px;
+    margin: 12px;
 }
 
 .blog-post-div {
@@ -427,8 +460,8 @@ footer {
 
     .hero-logo img {
         height:650px;
-        width: auto;
         top: -800px;
+        width: auto;
     }
 
     .index-grid-1-1 {
@@ -491,7 +524,6 @@ footer {
         flex-direction: column;
         justify-content: flex-end;;
         align-items: center;
-
     }
     .footer-grid-section-3 {
         grid-row: 1span/ 1;
@@ -500,6 +532,5 @@ footer {
         flex-direction: column;
         justify-content: flex-end;;
         align-items: center;
-
     }
 }

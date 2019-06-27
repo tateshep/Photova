@@ -3,6 +3,8 @@ from django.urls import reverse
 
 
 class Image(models.Model):
+    # Image model. Uses ImageField to allow user to upload image.
+
     title = models.CharField(max_length=50)
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='data/')
@@ -15,6 +17,10 @@ class Image(models.Model):
 
 
 class Collection(models.Model):
+    # Collection, has a many to many relationship with the Image model
+    # as well as with permitted users. Permitted users will be able to view 
+    # collections associated with them in the My Collections view
+
     title = models.CharField(max_length=50)
     images = models.ManyToManyField(Image,blank=True) # manytomany relationship with Collection
     description = models.TextField(blank=True)
