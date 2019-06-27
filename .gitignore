@@ -125,4 +125,5 @@ dmypy.json
 
 # Photova files
 /photova/data
+/photova/media
 /photova/db.sqlite3
