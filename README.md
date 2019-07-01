@@ -20,6 +20,8 @@ Photova is a responsive, dynamic photography portfolio website. It features file
 - Images stored to db via file upload
 - Organize Images by Collection
 - Update/edit views for admin users 
+- Show case galleries for portfolio display
+- Private galleries for clients, with download functionality
 
 ##### Usage
 
@@ -34,6 +36,7 @@ Collections and Images can both be edited, or deleted from their detail views an
 - View Blog Post
 - Update Blog Post
 - Delete Blog Post
+- Staff permission required
 
 ##### Usage
  
@@ -56,6 +59,7 @@ The email functionality is still in development, awaiting the configuration of a
 - Blog Posts
 - Collections
 - Images
+- Login required
 
 ##### Usage
 
@@ -68,6 +72,7 @@ The comment feature has been included for the following; Blog Posts, Collections
 - Images
 - Blog Posts
 - Users (view only)
+- Staff permissions required
 
 ##### Usage
 
