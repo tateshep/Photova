@@ -65,7 +65,7 @@ class NewImage(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def post(self,request, *args,**kwargs):
-        # This method was necessary to allow multiple file uploads when adding images
+        # This method is necessary to allow multiple file uploads when adding images
         # In the case of multiple file uploads, they will be titled with the title associated
         # with the upload, appended with numbers starting at 0
 
